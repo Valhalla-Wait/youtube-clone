@@ -1,7 +1,17 @@
 import { Box, Stack, Typography } from "@mui/material"
 import { Sidebar } from "../Sidebar/Sidebar"
+import { Videos } from "../Videos/Videos"
+import { useEffect, useState } from "react"
+import { fetchVideos } from "@/utils/fetchVideos"
 
 export const Feed = () => {
+
+  const [selectedCategory, setSelectedCategory] = useState('New')
+
+  useEffect(() => {
+    fetchVideos(`search?part=snippet&q=${selectedCategory}`)
+  }, [])
+
   return (
    <Stack
    sx={{
@@ -35,6 +45,26 @@ export const Feed = () => {
       >
         Copyright 2023 Valhalla-Wait
       </Typography>
+    </Box>
+    <Box p={2} style={{
+      overflowY: 'auto',
+      height:'90vh',
+      flex: 2
+    }}>
+    <Typography 
+      className="copyright"
+      variant="h4"
+      mb={2}
+      fontWeight='bold'
+      sx={{
+        color: 'white'
+      }}
+      >
+        New <span style={{color: '#F31503'}}>videos</span>
+      </Typography>
+
+      <Videos videos={[]} />
+
     </Box>
    </Stack>
   )

@@ -7,10 +7,11 @@ import { fetchVideos } from "@/utils/fetchVideos"
 export const Feed = () => {
 
   const [selectedCategory, setSelectedCategory] = useState('New')
+  const [videos, setVideos] = useState([])
 
   useEffect(() => {
-    fetchVideos(`search?part=snippet&q=${selectedCategory}`)
-  }, [])
+    fetchVideos(`search?part=snippet&q=${selectedCategory}`).then((data) => setVideos(data.items))
+  }, [selectedCategory])
 
   return (
    <Stack
@@ -34,7 +35,10 @@ export const Feed = () => {
       }
     }}
     >
-      <Sidebar />
+      <Sidebar 
+      selectedCategory={selectedCategory}
+      setSelectedCategory={setSelectedCategory}
+      />
       <Typography 
       className="copyright"
       variant="body2"
@@ -60,10 +64,10 @@ export const Feed = () => {
         color: 'white'
       }}
       >
-        New <span style={{color: '#F31503'}}>videos</span>
+        {selectedCategory} <span style={{color: '#F31503'}}>videos</span>
       </Typography>
 
-      <Videos videos={[]} />
+      <Videos videos={videos as []} />
 
     </Box>
    </Stack>

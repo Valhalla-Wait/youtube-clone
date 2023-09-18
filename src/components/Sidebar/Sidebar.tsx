@@ -1,9 +1,16 @@
 import { categories } from "@/utils/constants"
 import { Stack } from "@mui/material"
 
-const selectedCategory = 'New'
+type PropsType = {
+    selectedCategory: string
+    setSelectedCategory: (categoryName: string) => void
+}
 
-export const Sidebar = () => {
+export const Sidebar = ({
+    selectedCategory,
+    setSelectedCategory
+}:PropsType) => {
+
   return (
     <Stack
     direction='row'
@@ -21,11 +28,13 @@ export const Sidebar = () => {
         {
             categories.map((category) => (
                 <button
+                onClick={() => setSelectedCategory(category.name)}
                 className="category-btn"
                 style={{
                     background: category.name === selectedCategory ? '#FC1503' : '',
                     color: 'white'
                 }}
+
                 key={category.name}
                 >
                     <span

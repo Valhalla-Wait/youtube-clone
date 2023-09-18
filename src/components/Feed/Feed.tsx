@@ -6,7 +6,7 @@ import { fetchVideos } from "@/utils/fetchVideos"
 
 export const Feed = () => {
 
-  const [selectedCategory, setSelectedCategory] = useState('New')
+  const [selectedCategory, setSelectedCategory] = useState(() => 'New')
   const [videos, setVideos] = useState([])
 
   useEffect(() => {
@@ -67,7 +67,7 @@ export const Feed = () => {
         {selectedCategory} <span style={{color: '#F31503'}}>videos</span>
       </Typography>
 
-      <Videos videos={videos as []} />
+      <Videos videos={videos as any[]} />
 
     </Box>
    </Stack>

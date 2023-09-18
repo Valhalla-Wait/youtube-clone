@@ -4,12 +4,13 @@ import { Link } from "react-router-dom"
 
 export type VideoCardPropsType = {
     id: {
-        videoId: string
+        videoId?: string
     },
     snippet: any
 }
 
-export const VideoCard = ({id:{videoId}, snippet}: any) => {
+export const VideoCard = ({video}: any) => {
+    debugger
   return (
     <Card sx={{
         width: {
@@ -19,9 +20,9 @@ export const VideoCard = ({id:{videoId}, snippet}: any) => {
         boxShadow: 'none',
         borderRadius: 0
     }}>
-        <Link to={videoId ? `/video/${videoId}` : ''}>
+        <Link to={video?.videoId ? `/video/${video?.videoId}` : ''}>
         <CardMedia 
-        image={snippet?.thumbnails?.high?.url} 
+        image={video?.snippet?.thumbnails?.high?.url} 
         sx={{
             width: 358,
             height: 180
@@ -34,22 +35,22 @@ export const VideoCard = ({id:{videoId}, snippet}: any) => {
             height: '106px'
         }}
         >
-            <Link to={videoId ? `/video/${videoId}` : ''}>
+            <Link to={video?.videoId ? `/video/${video?.videoId}` : ''}>
                 <Typography
                 variant="subtitle1"
                 fontWeight='bold'
                 color='#FFF'
                 >
-                    {snippet?.title.slice(0, 60) || 'demoTitle'}
+                    {video?.snippet?.title.slice(0, 60) || 'demoTitle'}
                 </Typography>
             </Link>
-            <Link to={snippet?.channelId ? `/channel/${snippet?.channelId}` : ''}>
+            <Link to={video?.snippet?.channelId ? `/channel/${video?.snippet?.channelId}` : ''}>
                 <Typography
                 variant="subtitle2"
                 fontWeight='bold'
                 color='gray'
                 >
-                    {snippet?.channelTitle.slice(0, 60) || 'demoTitle'}
+                    {video?.snippet?.channelTitle.slice(0, 60) || 'demoTitle'}
                     <CheckCircle 
                     sx={{
                         fontSize: 12,

@@ -14,7 +14,7 @@ export const Videos = ({videos}:PropsType) => {
     justifyContent='start'
     gap={2}
     >
-        {videos.map((item, idx) => 
+        {!!videos.length && videos.map((item, idx) => 
             <Box
             key={idx}
             >

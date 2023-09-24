@@ -12,7 +12,7 @@ const options = {
   }
 };
 
-export const fetchVideos = async (url: string) => {
+export const fetchData = async (url: string) => {
     const {data} = await axios.get(`${import.meta.env.VITE_API_URL}/${url}`, options)
     return data
 }

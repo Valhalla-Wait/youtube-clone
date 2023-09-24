@@ -2,7 +2,7 @@ import { Box, Stack, Typography } from "@mui/material"
 import { Sidebar } from "../Sidebar/Sidebar"
 import { Videos } from "../Videos/Videos"
 import { useEffect, useState } from "react"
-import { fetchVideos } from "@/utils/fetchVideos"
+import { fetchData } from "@/utils/fetchVideos"
 
 export const Feed = () => {
 
@@ -10,7 +10,7 @@ export const Feed = () => {
   const [videos, setVideos] = useState([])
 
   useEffect(() => {
-    fetchVideos(`search?part=snippet&q=${selectedCategory}`).then((data) => setVideos(data.items))
+    fetchData(`search?part=snippet&q=${selectedCategory}`).then((data) => setVideos(data.items))
   }, [selectedCategory])
 
   return (

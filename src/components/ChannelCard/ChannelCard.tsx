@@ -4,9 +4,10 @@ import { Link } from "react-router-dom"
 
 type PropsType = {
     channelDetail: any
+    marginTop?: string
 }
 
-export const ChannelCard = ({ channelDetail }: PropsType) => {
+export const ChannelCard = ({ channelDetail, marginTop }: PropsType) => {
     return (
         <Box
             sx={{
@@ -20,7 +21,8 @@ export const ChannelCard = ({ channelDetail }: PropsType) => {
                     md: '320px'
                 },
                 height: '326px',
-                margin: 'auto'
+                margin: 'auto',
+                marginTop
             }}
         >
             <Link

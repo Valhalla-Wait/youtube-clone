@@ -1,7 +1,7 @@
 import { logo } from "@/utils/constants"
 import { Stack } from "@mui/material"
 import { Link } from "react-router-dom"
-import {SearchFeed} from '@/components/SearchFeed/SearchFeed'
+import { SearchBar } from "../SearchBar/SearchBar"
 
 export const Navbar = () => {
   return (
@@ -14,7 +14,7 @@ export const Navbar = () => {
         <Link to='/' style={{display: 'flex', alignItems: 'center'}}>
           <img src={logo} alt='logo' height={45} />
         </Link>
-        <SearchFeed />
+        <SearchBar />
       </Stack>
     </div>
   )

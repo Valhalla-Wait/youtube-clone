@@ -11,6 +11,7 @@ export type VideoCardPropsType = {
 
 export const VideoCard = ({video}: any) => {
     debugger
+    console.log(video?.id?.videoId)
   return (
     <Card sx={{
         width: {
@@ -20,7 +21,7 @@ export const VideoCard = ({video}: any) => {
         boxShadow: 'none',
         borderRadius: 0
     }}>
-        <Link to={video?.videoId ? `/video/${video?.videoId}` : ''}>
+        <Link to={`/video/${video?.id?.videoId}`}>
         <CardMedia 
         image={video?.snippet?.thumbnails?.high?.url} 
         sx={{
@@ -35,7 +36,7 @@ export const VideoCard = ({video}: any) => {
             height: '106px'
         }}
         >
-            <Link to={video?.videoId ? `/video/${video?.videoId}` : ''}>
+            <Link to={`/video/${video?.id?.videoId}`}>
                 <Typography
                 variant="subtitle1"
                 fontWeight='bold'

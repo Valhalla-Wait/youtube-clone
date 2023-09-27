@@ -8,7 +8,7 @@ type PropsType = {
 }
 
 export const Videos = ({videos,direction}:PropsType) => {
-  if(!videos?.length) return 'Loading...'
+  if(!videos?.length) return <>'Loading...'</>
   return (
     <Stack 
     direction={direction || 'row'}

@@ -15,8 +15,9 @@ export const VideoCard = ({video}: any) => {
   return (
     <Card sx={{
         width: {
-            md: '320px',
-            xs: '1005'
+            xs: '100%',
+            sm: '358px',
+            md: '320px'
         },
         boxShadow: 'none',
         borderRadius: 0
@@ -25,7 +26,11 @@ export const VideoCard = ({video}: any) => {
         <CardMedia 
         image={video?.snippet?.thumbnails?.high?.url} 
         sx={{
-            width: 358,
+            width: {
+                xs: '100%',
+                sm: '358px',
+                md: '320px'
+            },
             height: 180
         }}
         />
